@@ -2,6 +2,10 @@ using FoodDrinkApp.Services;
 
 namespace FoodDrinkApp;
 
+/// <summary>
+/// Page demonstrating mobile hardware capabilities including camera, location,
+/// text-to-speech, vibration, and haptic feedback.
+/// </summary>
 public partial class HardwarePage : ContentPage
 {
     private int feedbackTestCount;
@@ -11,18 +15,27 @@ public partial class HardwarePage : ContentPage
         InitializeComponent();
     }
 
+    /// <summary>
+    /// Called when the page appears. Applies accessibility font scaling.
+    /// </summary>
     protected override void OnAppearing()
     {
         base.OnAppearing();
         AccessibilityService.ApplyFontScale(this);
     }
 
+    /// <summary>
+    /// Called when the page disappears. Stops any ongoing speech.
+    /// </summary>
     protected override void OnDisappearing()
     {
         SpeechService.Stop();
         base.OnDisappearing();
     }
 
+    /// <summary>
+    /// Handles the Photo button click to capture a food photo using the camera.
+    /// </summary>
     private async void OnTakePhotoClicked(object? sender, EventArgs e)
     {
         try
@@ -58,6 +71,9 @@ public partial class HardwarePage : ContentPage
         }
     }
 
+    /// <summary>
+    /// Handles the Locate button click to get the current location and geocode address.
+    /// </summary>
     private async void OnGetLocationClicked(object? sender, EventArgs e)
     {
         try
@@ -86,6 +102,10 @@ public partial class HardwarePage : ContentPage
         }
     }
 
+    /// <summary>
+    /// Builds a formatted address string from a location using geocoding.
+    /// Falls back to region-based address if geocoding fails.
+    /// </summary>
     private static async Task<string> BuildAddressTextAsync(Location location)
     {
         try
@@ -101,11 +121,15 @@ public partial class HardwarePage : ContentPage
         }
         catch
         {
+            // Geocoding may fail on some devices or simulators
         }
 
         return BuildFallbackAddress(location);
     }
 
+    /// <summary>
+    /// Formats placemark information into a readable address string.
+    /// </summary>
     private static string FormatPlacemark(Placemark? placemark)
     {
         if (placemark is null)
@@ -128,6 +152,9 @@ public partial class HardwarePage : ContentPage
         return parts.Length == 0 ? string.Empty : string.Join(" / ", parts);
     }
 
+    /// <summary>
+    /// Provides fallback address based on geographic region when geocoding is unavailable.
+    /// </summary>
     private static string BuildFallbackAddress(Location location)
     {
         if (IsNear(location, 37.422, -122.084, 0.08))
@@ -148,12 +175,18 @@ public partial class HardwarePage : ContentPage
         return "Coordinates were found, but country and city were not returned by this device.";
     }
 
+    /// <summary>
+    /// Checks if a location is near a specific coordinate within tolerance.
+    /// </summary>
     private static bool IsNear(Location location, double latitude, double longitude, double tolerance)
     {
         return Math.Abs(location.Latitude - latitude) <= tolerance &&
                Math.Abs(location.Longitude - longitude) <= tolerance;
     }
 
+    /// <summary>
+    /// Handles the Read Help button click to read help content aloud.
+    /// </summary>
     private async void OnReadHelpClicked(object? sender, EventArgs e)
     {
         try
@@ -168,12 +201,18 @@ public partial class HardwarePage : ContentPage
         }
     }
 
+    /// <summary>
+    /// Handles the Stop Speech button click to stop ongoing text-to-speech.
+    /// </summary>
     private void OnStopSpeechClicked(object? sender, EventArgs e)
     {
         SpeechService.Stop();
         SetStatus("Reading stopped.");
     }
 
+    /// <summary>
+    /// Handles the Haptic Feedback button click to trigger vibration and haptic feedback.
+    /// </summary>
     private void OnFeedbackClicked(object? sender, EventArgs e)
     {
         try
@@ -190,6 +229,9 @@ public partial class HardwarePage : ContentPage
         }
     }
 
+    /// <summary>
+    /// Updates the status label and announces the message to screen readers.
+    /// </summary>
     private void SetStatus(string message)
     {
         HardwareStatusLabel.Text = message;

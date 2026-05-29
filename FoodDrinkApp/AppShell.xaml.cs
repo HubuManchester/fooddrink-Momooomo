@@ -2,10 +2,15 @@
 
 public partial class AppShell : Shell
 {
-	public AppShell()
-	{
-		InitializeComponent();
-		Routing.RegisterRoute(nameof(AddItemPage), typeof(AddItemPage));
-		Routing.RegisterRoute(nameof(FoodDetailPage), typeof(FoodDetailPage));
-	}
+    public AppShell()
+    {
+        InitializeComponent();
+        RegisterRoutes();
+    }
+
+    private void RegisterRoutes()
+    {
+        Routing.RegisterRoute(nameof(AddItemPage), typeof(AddItemPage));
+        Routing.RegisterRoute(nameof(FoodDetailPage), typeof(FoodDetailPage));
+    }
 }

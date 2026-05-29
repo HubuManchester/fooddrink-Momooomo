@@ -3,6 +3,10 @@ using FoodDrinkApp.Services;
 
 namespace FoodDrinkApp;
 
+/// <summary>
+/// Page for adding new food or drink records to the catalog.
+/// Includes form validation, haptic feedback, and accessibility support.
+/// </summary>
 public partial class AddItemPage : ContentPage
 {
     public AddItemPage()
@@ -10,12 +14,19 @@ public partial class AddItemPage : ContentPage
         InitializeComponent();
     }
 
+    /// <summary>
+    /// Called when the page appears. Applies accessibility font scaling.
+    /// </summary>
     protected override void OnAppearing()
     {
         base.OnAppearing();
         AccessibilityService.ApplyFontScale(this);
     }
 
+    /// <summary>
+    /// Handles saving a new food item when the Save button is clicked.
+    /// Validates the form and provides haptic feedback on success.
+    /// </summary>
     private async void OnSaveClicked(object? sender, EventArgs e)
     {
         try
@@ -62,6 +73,10 @@ public partial class AddItemPage : ContentPage
         }
     }
 
+    /// <summary>
+    /// Validates the form fields and extracts numeric values.
+    /// Returns an error message if validation fails, null if successful.
+    /// </summary>
     private string? ValidateForm(out int calories, out int protein, out int carbs, out int fat)
     {
         calories = protein = carbs = fat = 0;
@@ -87,6 +102,10 @@ public partial class AddItemPage : ContentPage
             ?? TryReadNumber(FatEntry.Text, "fat", out fat);
     }
 
+    /// <summary>
+    /// Attempts to parse a string value to an integer.
+    /// Validates that the number is non-negative.
+    /// </summary>
     private static string? TryReadNumber(string? value, string fieldName, out int number)
     {
         if (int.TryParse(value, out number) && number >= 0)
@@ -97,6 +116,9 @@ public partial class AddItemPage : ContentPage
         return $"Please enter a valid non-negative number for {fieldName}.";
     }
 
+    /// <summary>
+    /// Displays a validation error message and announces it to screen readers.
+    /// </summary>
     private void ShowValidation(string message)
     {
         ValidationLabel.Text = message;

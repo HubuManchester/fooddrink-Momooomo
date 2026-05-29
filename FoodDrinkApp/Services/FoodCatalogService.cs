@@ -4,6 +4,10 @@ using FoodDrinkApp.Models;
 
 namespace FoodDrinkApp.Services;
 
+/// <summary>
+/// Manages food and drink data operations with support for remote API and local fallback.
+/// Handles searching, retrieving, and adding food items.
+/// </summary>
 public static class FoodCatalogService
 {
     private static readonly HttpClient HttpClient = new()
@@ -70,8 +74,17 @@ public static class FoodCatalogService
 
     private static List<FoodItem> cachedItems = new(LocalFallbackItems);
 
+    /// <summary>
+    /// Indicates whether the last data load came from mockapi.io or local fallback.
+    /// </summary>
     public static bool LastLoadUsedMockApi { get; private set; }
 
+    /// <summary>
+    /// Searches for food items matching the given query.
+    /// Search matches against name, category, description, and tags.
+    /// </summary>
+    /// <param name="query">The search query. If null or empty, returns all items.</param>
+    /// <returns>A sorted list of matching food items.</returns>
     public static async Task<IReadOnlyList<FoodItem>> SearchAsync(string? query)
     {
         var items = await GetAllAsync();
@@ -92,8 +105,19 @@ public static class FoodCatalogService
             .ToList();
     }
 
+    /// <summary>
+    /// Retrieves a food item by its ID.
+    /// First attempts to fetch from API, then falls back to cached data.
+    /// </summary>
+    /// <param name="id">The ID of the food item to retrieve.</param>
+    /// <returns>The food item if found; otherwise null.</returns>
     public static async Task<FoodItem?> GetByIdAsync(string id)
     {
+        if (string.IsNullOrWhiteSpace(id))
+        {
+            return null;
+        }
+
         if (MockApiConfig.IsConfigured)
         {
             try
@@ -116,18 +140,36 @@ public static class FoodCatalogService
         return cachedItems.FirstOrDefault(item => item.Id == id);
     }
 
+    /// <summary>
+    /// Adds a new food item to the catalog.
+    /// If API is configured, posts to remote server; otherwise adds to local cache.
+    /// </summary>
+    /// <param name="item">The food item to add.</param>
+    /// <returns>The added food item.</returns>
     public static async Task<FoodItem> AddAsync(FoodItem item)
     {
+        if (item is null)
+        {
+            throw new ArgumentNullException(nameof(item));
+        }
+
         if (MockApiConfig.IsConfigured)
         {
-            var response = await HttpClient.PostAsJsonAsync(MockApiConfig.EndpointUrl, item, JsonOptions);
-            response.EnsureSuccessStatusCode();
-
-            var created = await response.Content.ReadFromJsonAsync<FoodItem>(JsonOptions);
-            if (created is not null)
+            try
             {
-                cachedItems.Add(created);
-                return created;
+                var response = await HttpClient.PostAsJsonAsync(MockApiConfig.EndpointUrl, item, JsonOptions);
+                response.EnsureSuccessStatusCode();
+
+                var created = await response.Content.ReadFromJsonAsync<FoodItem>(JsonOptions);
+                if (created is not null)
+                {
+                    cachedItems.Add(created);
+                    return created;
+                }
+            }
+            catch
+            {
+                // Fall back to local cache if API fails
             }
         }
 
@@ -135,6 +177,10 @@ public static class FoodCatalogService
         return item;
     }
 
+    /// <summary>
+    /// Retrieves all food items, prioritizing API if configured.
+    /// Falls back to local mock data if API is unavailable.
+    /// </summary>
     private static async Task<IReadOnlyList<FoodItem>> GetAllAsync()
     {
         if (!MockApiConfig.IsConfigured)
