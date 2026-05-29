@@ -78,6 +78,20 @@ public partial class HardwarePage : ContentPage
     {
         try
         {
+            // Request location permissions at runtime (required for Android 6.0+)
+            var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            
+            if (status != PermissionStatus.Granted)
+            {
+                status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            }
+
+            if (status != PermissionStatus.Granted)
+            {
+                SetStatus("Location permission was denied. Enable location access in device settings.");
+                return;
+            }
+
             SetStatus("Getting location...");
             var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
             var location = await Geolocation.Default.GetLocationAsync(request);
