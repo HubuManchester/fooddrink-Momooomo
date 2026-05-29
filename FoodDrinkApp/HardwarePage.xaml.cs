@@ -93,12 +93,38 @@ public partial class HardwarePage : ContentPage
             }
 
             SetStatus("Getting location...");
-            var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
-            var location = await Geolocation.Default.GetLocationAsync(request);
 
-            if (location is null)
+            // Try multiple accuracy levels to increase chances of success
+            Location? location = null;
+            var accuracies = new[] { GeolocationAccuracy.Medium, GeolocationAccuracy.Low, GeolocationAccuracy.High };
+            
+            foreach (var accuracy in accuracies)
             {
-                SetStatus("Current location could not be found.");
+                try
+                {
+                    var request = new GeolocationRequest(accuracy, TimeSpan.FromSeconds(15));
+                    location = await Geolocation.Default.GetLocationAsync(request);
+                    if (location != null)
+                    {
+                        break;
+                    }
+                }
+                catch
+                {
+                    // Continue to next accuracy level
+                }
+            }
+
+            // Fallback: Get last known location if current location couldn't be obtained
+            if (location == null)
+            {
+                SetStatus("Trying last known location...");
+                location = await Geolocation.Default.GetLastKnownLocationAsync();
+            }
+
+            if (location == null)
+            {
+                SetStatus("Current location could not be found. Please ensure GPS is enabled and try again.");
                 return;
             }
 
