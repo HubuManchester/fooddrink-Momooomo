@@ -6,14 +6,14 @@
     xmlns:local="clr-namespace:FoodDrinkApp"
     Title="NutriBite"
     FlyoutBehavior="Disabled"
-    Shell.BackgroundColor="{AppThemeBinding Light=#FFF4E3, Dark=#120E0B}"
-    Shell.ForegroundColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
-    Shell.TitleColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
-    Shell.UnselectedColor="{AppThemeBinding Light=#9A7B63, Dark=#BFA58E}"
-    Shell.TabBarBackgroundColor="{AppThemeBinding Light=#FFF4E3, Dark=#120E0B}"
-    Shell.TabBarForegroundColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
-    Shell.TabBarTitleColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
-    Shell.TabBarUnselectedColor="{AppThemeBinding Light=#9A7B63, Dark=#BFA58E}">
+    Shell.BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#0D1B2A}"
+    Shell.ForegroundColor="{AppThemeBinding Light=#0D47A1, Dark=#E3F2FD}"
+    Shell.TitleColor="{AppThemeBinding Light=#0D47A1, Dark=#E3F2FD}"
+    Shell.UnselectedColor="{AppThemeBinding Light=#546E7A, Dark=#90CAF9}"
+    Shell.TabBarBackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#0D1B2A}"
+    Shell.TabBarForegroundColor="{AppThemeBinding Light=#1565C0, Dark=#4FC3F7}"
+    Shell.TabBarTitleColor="{AppThemeBinding Light=#1565C0, Dark=#4FC3F7}"
+    Shell.TabBarUnselectedColor="{AppThemeBinding Light=#546E7A, Dark=#90CAF9}">
 
     <TabBar>
         <ShellContent
