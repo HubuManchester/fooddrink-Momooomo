@@ -36,6 +36,54 @@ public static class FoodCatalogService
         },
         new()
         {
+            Name = "Avocado Toast",
+            Category = "Breakfast",
+            Description = "Sourdough bread topped with smashed avocado, cherry tomatoes, and poached eggs.",
+            Calories = 420,
+            Protein = 16,
+            Carbs = 38,
+            Fat = 24,
+            AllergyNote = "Contains gluten and eggs.",
+            Tags = "breakfast avocado toast vegetarian"
+        },
+        new()
+        {
+            Name = "Oatmeal with Banana",
+            Category = "Breakfast",
+            Description = "Rolled oats cooked with milk, topped with sliced banana, cinnamon, and walnuts.",
+            Calories = 380,
+            Protein = 12,
+            Carbs = 62,
+            Fat = 10,
+            AllergyNote = "Contains dairy and nuts.",
+            Tags = "breakfast oatmeal banana healthy"
+        },
+        new()
+        {
+            Name = "Scrambled Eggs with Bacon",
+            Category = "Breakfast",
+            Description = "Fluffy scrambled eggs with crispy bacon strips and whole wheat toast.",
+            Calories = 520,
+            Protein = 32,
+            Carbs = 28,
+            Fat = 34,
+            AllergyNote = "Contains eggs and gluten.",
+            Tags = "breakfast eggs bacon protein"
+        },
+        new()
+        {
+            Name = "Pancake Stack",
+            Category = "Breakfast",
+            Description = "Fluffy buttermilk pancakes with maple syrup and fresh strawberries.",
+            Calories = 580,
+            Protein = 10,
+            Carbs = 88,
+            Fat = 18,
+            AllergyNote = "Contains gluten, eggs, and dairy.",
+            Tags = "breakfast pancake syrup sweet"
+        },
+        new()
+        {
             Name = "Chicken Brown Rice Box",
             Category = "Lunch",
             Description = "Grilled chicken breast with brown rice, spinach, cucumber, and lemon dressing.",
@@ -45,6 +93,174 @@ public static class FoodCatalogService
             Fat = 14,
             AllergyNote = "No common allergens recorded.",
             Tags = "meal prep protein lunch"
+        },
+        new()
+        {
+            Name = "Caesar Salad",
+            Category = "Lunch",
+            Description = "Romaine lettuce with grilled chicken, parmesan, croutons, and Caesar dressing.",
+            Calories = 480,
+            Protein = 34,
+            Carbs = 22,
+            Fat = 28,
+            AllergyNote = "Contains dairy, gluten, and eggs.",
+            Tags = "salad lunch chicken caesar"
+        },
+        new()
+        {
+            Name = "Vegetable Stir Fry",
+            Category = "Lunch",
+            Description = "Mixed vegetables with tofu in ginger soy sauce, served with jasmine rice.",
+            Calories = 420,
+            Protein = 18,
+            Carbs = 56,
+            Fat = 14,
+            AllergyNote = "Contains soy and gluten.",
+            Tags = "vegetarian lunch stir fry asian"
+        },
+        new()
+        {
+            Name = "Turkey Sandwich",
+            Category = "Lunch",
+            Description = "Sliced turkey with cheese, lettuce, tomato, and mustard on whole grain bread.",
+            Calories = 450,
+            Protein = 32,
+            Carbs = 42,
+            Fat = 16,
+            AllergyNote = "Contains gluten and dairy.",
+            Tags = "lunch sandwich turkey protein"
+        },
+        new()
+        {
+            Name = "Mushroom Risotto",
+            Category = "Lunch",
+            Description = "Creamy arborio rice with wild mushrooms, parmesan, and fresh thyme.",
+            Calories = 560,
+            Protein = 14,
+            Carbs = 72,
+            Fat = 22,
+            AllergyNote = "Contains dairy.",
+            Tags = "lunch risotto mushroom vegetarian"
+        },
+        new()
+        {
+            Name = "Tomato Wholegrain Pasta",
+            Category = "Dinner",
+            Description = "Wholegrain pasta with tomato sauce, basil, and roasted vegetables.",
+            Calories = 610,
+            Protein = 18,
+            Carbs = 92,
+            Fat = 16,
+            AllergyNote = "Contains gluten.",
+            Tags = "vegetarian dinner pasta"
+        },
+        new()
+        {
+            Name = "Grilled Salmon",
+            Category = "Dinner",
+            Description = "Atlantic salmon fillet with roasted potatoes, asparagus, and lemon butter sauce.",
+            Calories = 680,
+            Protein = 46,
+            Carbs = 38,
+            Fat = 36,
+            AllergyNote = "Contains fish and dairy.",
+            Tags = "dinner salmon fish protein"
+        },
+        new()
+        {
+            Name = "Beef Steak",
+            Category = "Dinner",
+            Description = "Prime beef sirloin with mashed potatoes, grilled mushrooms, and red wine jus.",
+            Calories = 820,
+            Protein = 52,
+            Carbs = 42,
+            Fat = 48,
+            AllergyNote = "Contains dairy.",
+            Tags = "dinner steak beef protein"
+        },
+        new()
+        {
+            Name = "Chicken Curry",
+            Category = "Dinner",
+            Description = "Tender chicken pieces in coconut curry sauce with basmati rice and naan bread.",
+            Calories = 740,
+            Protein = 36,
+            Carbs = 68,
+            Fat = 32,
+            AllergyNote = "Contains gluten and dairy.",
+            Tags = "dinner curry chicken asian"
+        },
+        new()
+        {
+            Name = "Vegetable Lasagna",
+            Category = "Dinner",
+            Description = "Layers of pasta with ricotta, spinach, zucchini, and marinara sauce.",
+            Calories = 580,
+            Protein = 24,
+            Carbs = 62,
+            Fat = 26,
+            AllergyNote = "Contains gluten and dairy.",
+            Tags = "vegetarian dinner lasagna pasta"
+        },
+        new()
+        {
+            Name = "Greek Salad",
+            Category = "Snack",
+            Description = "Cucumber, tomatoes, olives, red onion, and feta cheese with olive oil dressing.",
+            Calories = 280,
+            Protein = 10,
+            Carbs = 18,
+            Fat = 20,
+            AllergyNote = "Contains dairy.",
+            Tags = "snack salad greek vegetarian"
+        },
+        new()
+        {
+            Name = "Hummus with Pita",
+            Category = "Snack",
+            Description = "Creamy chickpea hummus served with warm pita bread and carrot sticks.",
+            Calories = 320,
+            Protein = 12,
+            Carbs = 48,
+            Fat = 10,
+            AllergyNote = "Contains gluten.",
+            Tags = "snack hummus pita mediterranean"
+        },
+        new()
+        {
+            Name = "Mixed Nuts",
+            Category = "Snack",
+            Description = "A handful of almonds, cashews, walnuts, and dried cranberries.",
+            Calories = 200,
+            Protein = 6,
+            Carbs = 14,
+            Fat = 16,
+            AllergyNote = "Contains nuts.",
+            Tags = "snack nuts healthy protein"
+        },
+        new()
+        {
+            Name = "Apple with Peanut Butter",
+            Category = "Snack",
+            Description = "Fresh apple slices with natural peanut butter and a sprinkle of granola.",
+            Calories = 280,
+            Protein = 8,
+            Carbs = 32,
+            Fat = 14,
+            AllergyNote = "Contains nuts.",
+            Tags = "snack apple peanut butter healthy"
+        },
+        new()
+        {
+            Name = "Protein Bar",
+            Category = "Snack",
+            Description = "Chocolate protein bar with oats, almonds, and dark chocolate chips.",
+            Calories = 240,
+            Protein = 20,
+            Carbs = 24,
+            Fat = 8,
+            AllergyNote = "Contains nuts and soy.",
+            Tags = "snack protein bar gym fitness"
         },
         new()
         {
@@ -60,15 +276,87 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Tomato Wholegrain Pasta",
-            Category = "Dinner",
-            Description = "Wholegrain pasta with tomato sauce, basil, and roasted vegetables.",
-            Calories = 610,
-            Protein = 18,
-            Carbs = 92,
-            Fat = 16,
-            AllergyNote = "Contains gluten.",
-            Tags = "vegetarian dinner pasta"
+            Name = "Cappuccino",
+            Category = "Drink",
+            Description = "Double espresso with steamed milk foam. Classic Italian coffee style.",
+            Calories = 120,
+            Protein = 6,
+            Carbs = 10,
+            Fat = 4,
+            AllergyNote = "Contains dairy.",
+            Tags = "drink coffee caffeine espresso"
+        },
+        new()
+        {
+            Name = "Fresh Orange Juice",
+            Category = "Drink",
+            Description = "Freshly squeezed orange juice with no added sugar or preservatives.",
+            Calories = 110,
+            Protein = 2,
+            Carbs = 26,
+            Fat = 0,
+            AllergyNote = "No common allergens.",
+            Tags = "drink juice orange vitamin c"
+        },
+        new()
+        {
+            Name = "Green Smoothie",
+            Category = "Drink",
+            Description = "Blended spinach, banana, mango, and coconut water with chia seeds.",
+            Calories = 220,
+            Protein = 6,
+            Carbs = 44,
+            Fat = 4,
+            AllergyNote = "Contains seeds.",
+            Tags = "drink smoothie green healthy detox"
+        },
+        new()
+        {
+            Name = "Iced Americano",
+            Category = "Drink",
+            Description = "Espresso shots diluted with cold water and ice. Zero sugar, zero fat.",
+            Calories = 15,
+            Protein = 1,
+            Carbs = 2,
+            Fat = 0,
+            AllergyNote = "No common allergens.",
+            Tags = "drink coffee caffeine zero sugar"
+        },
+        new()
+        {
+            Name = "Hot Chocolate",
+            Category = "Drink",
+            Description = "Rich cocoa powder mixed with steamed milk and topped with whipped cream.",
+            Calories = 280,
+            Protein = 10,
+            Carbs = 38,
+            Fat = 12,
+            AllergyNote = "Contains dairy.",
+            Tags = "drink chocolate cocoa warm sweet"
+        },
+        new()
+        {
+            Name = "Sparkling Water",
+            Category = "Drink",
+            Description = "Refreshing carbonated water with natural lemon flavor. Zero calories.",
+            Calories = 0,
+            Protein = 0,
+            Carbs = 0,
+            Fat = 0,
+            AllergyNote = "No common allergens.",
+            Tags = "drink water sparkling zero calorie"
+        },
+        new()
+        {
+            Name = "Mango Lassi",
+            Category = "Drink",
+            Description = "Traditional Indian yogurt smoothie with fresh mango and cardamom.",
+            Calories = 260,
+            Protein = 10,
+            Carbs = 42,
+            Fat = 6,
+            AllergyNote = "Contains dairy.",
+            Tags = "drink lassi mango yogurt indian"
         }
     ];
 
@@ -103,6 +391,37 @@ public static class FoodCatalogService
                 item.Tags.Contains(normalised, StringComparison.OrdinalIgnoreCase))
             .OrderBy(item => item.Name)
             .ToList();
+    }
+
+    /// <summary>
+    /// Retrieves all food items from API or local fallback.
+    /// </summary>
+    /// <returns>A list of all food items.</returns>
+    public static async Task<IReadOnlyList<FoodItem>> GetAllAsync()
+    {
+        if (MockApiConfig.IsConfigured)
+        {
+            try
+            {
+                var response = await HttpClient.GetAsync(MockApiConfig.EndpointUrl);
+                response.EnsureSuccessStatusCode();
+                var items = await response.Content.ReadFromJsonAsync<List<FoodItem>>(JsonOptions);
+
+                if (items is { Count: > 0 })
+                {
+                    cachedItems = items;
+                    LastLoadUsedMockApi = true;
+                    return cachedItems;
+                }
+            }
+            catch
+            {
+                // Fall back to local cache below.
+            }
+        }
+
+        LastLoadUsedMockApi = false;
+        return cachedItems;
     }
 
     /// <summary>
@@ -175,36 +494,5 @@ public static class FoodCatalogService
 
         cachedItems.Add(item);
         return item;
-    }
-
-    /// <summary>
-    /// Retrieves all food items, prioritizing API if configured.
-    /// Falls back to local mock data if API is unavailable.
-    /// </summary>
-    private static async Task<IReadOnlyList<FoodItem>> GetAllAsync()
-    {
-        if (!MockApiConfig.IsConfigured)
-        {
-            LastLoadUsedMockApi = false;
-            return cachedItems;
-        }
-
-        try
-        {
-            var items = await HttpClient.GetFromJsonAsync<List<FoodItem>>(MockApiConfig.EndpointUrl, JsonOptions);
-            if (items is { Count: > 0 })
-            {
-                cachedItems = items;
-                LastLoadUsedMockApi = true;
-                return cachedItems;
-            }
-        }
-        catch
-        {
-            // Keep the app usable during demos even if the network is unavailable.
-        }
-
-        LastLoadUsedMockApi = false;
-        return cachedItems;
     }
 }
